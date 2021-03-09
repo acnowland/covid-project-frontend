@@ -3,11 +3,11 @@ import Select from "./select.js"
 const testStates = document.querySelector('.test-states')
 console.log(testStates)
 
-
 const selectElements = document.querySelectorAll('[data-custom]')
 selectElements.forEach(selectElement => {
    console.log(new Select(selectElement))
 })
+
 const stateOption = document.getElementById('state')
 
 
@@ -20,11 +20,6 @@ fetch("http://localhost:3000/covids")
    .then ( response => response.json())
    .then ( iterateOverStates)
 
-
-
-
-
-
 function iterateOverStates(states) {
    states.forEach(showState)
 }
@@ -34,13 +29,9 @@ function showState(state) {
    const toFull = state.state
 
    stateName.value = state.state
-
    stateName.textContent = abbrToState(toFull)
 
-
-   stateOption.append(stateName)
-
-   
+   stateOption.append(stateName)  
 }
 
 
