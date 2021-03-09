@@ -67,6 +67,7 @@ function abbrToState(abbr){
        ['Marshall Islands', 'MH'],
        ['Maryland', 'MD'],
        ['Massachusetts', 'MA'],
+       ['Mariana Islands', 'MP'],
        ['Michigan', 'MI'],
        ['Minnesota', 'MN'],
        ['Mississippi', 'MS'],
