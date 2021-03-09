@@ -1,0 +1,4 @@
+GET https://api.covidtracking.com/v1/states/current.json HTTP/1.1
+
+###
+GET https://api.covidtracking.com/v1/states/fl/current.json HTTP/1.1
