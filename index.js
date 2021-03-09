@@ -1,9 +1,9 @@
-import Select from "./select.js"
+// import Select from "./select.js"
 
-const selectElements = document.querySelectorAll('[data-custom]')
-selectElements.forEach(selectElement => {
-   console.log(new Select(selectElement))
-})
+// const selectElements = document.querySelectorAll('[data-custom]')
+// selectElements.forEach(selectElement => {
+//    console.log(new Select(selectElement))
+// })
 const stateOption = document.getElementById('state')
 
 window.addEventListener("scroll", function() {
@@ -11,7 +11,7 @@ window.addEventListener("scroll", function() {
    header.classList.toggle("sticky", window.scrollY > 0)
 })
 
-fetch("https://api.covidtracking.com/v1/states/info.json")
+fetch("https://api.covidtracking.com/v1/states/current.json")
    .then ( response => response.json())
    .then ( iterateOverStates)
 
@@ -22,7 +22,7 @@ function iterateOverStates(states) {
 function showState(state) {
    const stateName = document.createElement("option")
    stateName.value = state
-   stateName.textContent = state.name
+   stateName.textContent = state.state
 
    stateOption.append(stateName)
 }
