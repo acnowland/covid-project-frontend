@@ -1,8 +1,14 @@
-console.log('ahmed')
+
 
 const queryParams = new URLSearchParams(window.location.search)
 const stateName = queryParams.get('id')
-console.log(stateName)
+
+const pageTitle = document.querySelector('.hero')
+const stateCard = document.querySelector('.state-card')
+
+
+
+
 
 
 fetch(`http://localhost:3000/covids/${stateName}`)
@@ -11,19 +17,20 @@ fetch(`http://localhost:3000/covids/${stateName}`)
         const stateName = document.createElement('h2')
         const toFullName = state.state
 
-        stateName.textContent = abbrToState(toFullName)
-
+        
         const positive = document.createElement('h4')
-        positive.textContent = state.positive
+        positive.textContent = `Current number of positive cases are:  ${state.positive}`
 
         const totalTests = document.createElement('h4')
-        totalTests.textContent = state.totalTestResults
+        totalTests.textContent = `To date, there has been ${state.totalTestResults} total tests peformed.`
 
         const deaths = document.createElement('h4')
-        deaths.textContent = state.death
+        deaths.textContent = `The total number of deaths is currently at ${state.death}.`
 
-
-        document.body.append(stateName,positive,totalTests,deaths)
+        //will turn abbr to full state name and place on hero
+        pageTitle.append(abbrToState(toFullName))
+        //appends to the state card
+        stateCard.append(positive,totalTests,deaths)
 
     })
 
@@ -62,6 +69,7 @@ function abbrToState(abbr){
         ['Louisiana', 'LA'],
         ['Maine', 'ME'],
         ['Marshall Islands', 'MH'],
+        ['Mariana Islands', 'MP'],
         ['Maryland', 'MD'],
         ['Massachusetts', 'MA'],
         ['Michigan', 'MI'],
