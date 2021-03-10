@@ -1,15 +1,5 @@
-import Select from "./select.js"
-
 const testStates = document.querySelector('.test-states')
-console.log(testStates)
-
-const selectElements = document.querySelectorAll('[data-custom]')
-selectElements.forEach(selectElement => {
-   console.log(new Select(selectElement))
-})
-
 const stateOption = document.getElementById('state')
-
 
 window.addEventListener("scroll", function() {
    const header = document.querySelector(".header")
@@ -25,17 +15,15 @@ function iterateOverStates(states) {
 }
 
 function showState(state) {
-   const stateName = document.createElement("option")
+   const stateName = document.createElement("li")
    const toFull = state.state
 
-   stateName.value = state.state
-   stateName.textContent = abbrToState(toFull)
+   stateName.innerText = abbrToState(toFull)
+   stateName.innerHTML = `<a href="stateshow.html?id=${state.state}">${toFull}</a>`
+   // stateName.value = state.state
 
    stateOption.append(stateName)  
 }
-
-
-
 
 function abbrToState(abbr){
    var states = [
@@ -109,4 +97,8 @@ function abbrToState(abbr){
    }
 }
 
+const navigation = document.querySelector('.navigation');
 
+document.querySelector('.toggle').onclick = function () {
+   navigation.classList.toggle('active');
+}

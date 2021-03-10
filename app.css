@@ -6,7 +6,10 @@
    scroll-behavior: smooth;
 }
 body {
-   min-height: 1000px;
+   background-color: rgb(230, 224, 62);
+}
+.container {
+   height: 100vh;
 }
 header {
    display: flex;
@@ -21,141 +24,68 @@ header.sticky {
    overflow-y: hidden;
    transition-duration: 1s;
 }
+body img {
+   mix-blend-mode: darken;
+}
 .img {
    width: 100%;
    height: 100vh;
    background-size: cover;
    overflow-y: hidden;
 }
-form {
-   position: relative;
-   z-index: 100;
-   display: flex;
-   justify-content: center;
-   padding: 170px;
-}
-/* .custom-select-container {
-   width: 400px;
-   position: relative;
-}
-.click {
-   background-color: #D5CACB;
-}
-.click:hover {
-   background-color: aqua;
-}
-.click, .links {
-   padding: 15px;
-   font-size: 1em;
-   border: none;
-   outline: none;
-   width: 400px;
-   color: red;
-   transition: 0.3s;
-}
-.custom-list {
-   position: absolute;
-   transform: scaleY(0);
-   transform-origin: top;
-   transition: 0.3s;
-}
-.newlist {
-   transform: scaleY(1);
-}
-.links {
-   background-color: aqua;
-}
-.links:hover {
-   background-color: cadetblue;
-   transform: scale(1.1);
-}
-
-
-
-
-
-.custom-select-wrapper {
-   position: relative;
-   user-select: none;
-   width: 25%;
+.navigation {
+   position: fixed;
    left: 40%;
-   padding-bottom: 100px;
-   overflow-y: hidden;
+   height: 50px;
+   width: 250px;
+   margin-top: 50px;
+   transition: 0.5s;
+   border-radius: 5px;
+   overflow: hidden;
 }
-.custom-select {
+.navigation .toggle {
    position: relative;
-   display: flex;
-   flex-direction: column;
-   border-width: 0 2px 0 2px;
-   border-style: solid;
-   border-color: #000;
-}
-.custom-select__trigger {
-   position: relative;
+   width: 100%;
+   height: 50px;
+   background: #CC120F;
+   color: #fff;
    display: flex;
    align-items: center;
    justify-content: center;
-   padding: 0 50px;
+   padding: 0 20px;
    font-size: 20px;
-   font-weight: 300;
-   color: #FE463F;
-   height: 60px;
-   line-height: 60px;
-   background: #D5CACB;
-   cursor: pointer;
-   border-width: 2px 0 2px 0;
-   border-style: solid;
-   border-color: #000;
-   overflow-y: hidden;
+   cursor: pointer; 
 }
-.custom-options {
-   position: absolute;
+.navigation.active {
+   height: 300px;
+   overflow-y: visible;
+}
+.navigation .toggle:before {
+   content: 'Where is the COVID';
+}
+.navigation .toggle span {
+   position: relative;
+   width: 20px;
+   height: 50px;
+}
+.navigation ul {
+   position: relative;
+   background: #111;
+}
+.navigation ul li a {
+   position: relative;
+   text-decoration: none;
    display: block;
-   top: 100%;
-   left: 0;
-   right: 0;
-   border: 2px solid #000;
-   border-top: 0;
-   background: #D5CACB;
-   transition: all 0.5s;
-   opacity: 0;
-   visibility: hidden;
-   pointer-events: none;
-   z-index: 2;
-   overflow-y: hidden;
+   padding: 12px 20px;
+   height: 50px;
+   color: #fff;
+   font-size: 18px;
+   transition: 1s;
 }
-.custom-select.open .custom-options {
-     opacity: 1;
-     visibility: visible;
-     pointer-events: all;
-     display: flex;
-     justify-content: center;
-     flex-direction: column;
-     align-items: center;
-     overflow-y: hidden;
+.navigation ul li a:hover {
+   transition: 0s;
+   background: #cc120f70;
 }
- .custom-option {
-     position: relative;
-     display: block;
-     padding: 0 15px 0 15px;
-     font-size: 20px;
-     font-weight: 500;
-     color: #000;
-     line-height: 60px;
-     cursor: pointer;
-     transition: all 0.1s;
-}
- .custom-option:hover {
-     cursor: pointer;
-     background-color: #b2b2b2;
-}
- .custom-option.selected {
-     color: #ffffff;
-     background-color: #305c91;
-} */
-
- 
-
 @keyframes picture {
    0% {
       width: 100%;
