@@ -3,8 +3,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -53,6 +51,12 @@
     border: 1px solid red;
 }
 
+.return-area{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
 .home-button{
     text-decoration: none;
 }
@@ -71,6 +75,11 @@ footer{
 .names{
     color: white
 }
+
+/* #mapid { 
+    height: 400px; 
+
+} */
 
 
 

@@ -7,6 +7,16 @@ const pageTitle = document.querySelector('.hero')
 const stateCard = document.querySelector('.state-card')
 
 
+//adds map functionality
+// const mymap = L.map('mapid').setView([39.75, -104.99], 4.2);
+// L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+//     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+//     maxZoom: 18,
+//     id: 'mapbox/streets-v11',
+//     tileSize: 512,
+//     zoomOffset: -1,
+//     accessToken: 'pk.eyJ1IjoiYWNub3dsYW5kIiwiYSI6ImNrbTJqaGhsZTBoYjcycGp2ZHoxNWlibncifQ.lAf9JwvZdGux5Cg6T_EFRg'
+// }).addTo(mymap);
 
 
 
@@ -33,6 +43,8 @@ fetch(`http://localhost:3000/covids/${stateName}`)
         stateCard.append(positive,totalTests,deaths)
 
     })
+
+
 
 
 

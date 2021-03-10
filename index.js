@@ -1,8 +1,5 @@
 import Select from "./select.js"
 
-const testStates = document.querySelector('.test-states')
-console.log(testStates)
-
 const selectElements = document.querySelectorAll('[data-custom]')
 selectElements.forEach(selectElement => {
    console.log(new Select(selectElement))
