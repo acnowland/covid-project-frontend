@@ -1,4 +1,14 @@
+
 const testStates = document.querySelector('.test-states')
+
+import Select from "./select.js"
+
+const selectElements = document.querySelectorAll('[data-custom]')
+selectElements.forEach(selectElement => {
+   console.log(new Select(selectElement))
+})
+
+
 const stateOption = document.getElementById('state')
 
 window.addEventListener("scroll", function() {
@@ -55,6 +65,7 @@ function abbrToState(abbr){
        ['Marshall Islands', 'MH'],
        ['Maryland', 'MD'],
        ['Massachusetts', 'MA'],
+       ['Mariana Islands', 'MP'],
        ['Michigan', 'MI'],
        ['Minnesota', 'MN'],
        ['Mississippi', 'MS'],
