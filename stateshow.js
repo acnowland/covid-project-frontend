@@ -7,16 +7,6 @@ const pageTitle = document.querySelector('.hero')
 const stateCard = document.querySelector('.state-card')
 
 
-//adds map functionality
-// const mymap = L.map('mapid').setView([39.75, -104.99], 4.2);
-// L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-//     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-//     maxZoom: 18,
-//     id: 'mapbox/streets-v11',
-//     tileSize: 512,
-//     zoomOffset: -1,
-//     accessToken: 'pk.eyJ1IjoiYWNub3dsYW5kIiwiYSI6ImNrbTJqaGhsZTBoYjcycGp2ZHoxNWlibncifQ.lAf9JwvZdGux5Cg6T_EFRg'
-// }).addTo(mymap);
 
 
 
@@ -29,7 +19,7 @@ fetch(`http://localhost:3000/covids/${stateName}`)
 
         
         const positive = document.createElement('h4')
-        positive.textContent = `Current number of positive cases are:  ${state.positive}`
+        positive.textContent = `Current number of total positive cases are:  ${state.positive}`
 
         const totalTests = document.createElement('h4')
         totalTests.textContent = `To date, there has been ${state.totalTestResults} total tests peformed.`
@@ -40,9 +30,63 @@ fetch(`http://localhost:3000/covids/${stateName}`)
         //will turn abbr to full state name and place on hero
         pageTitle.append(abbrToState(toFullName))
         //appends to the state card
-        stateCard.append(positive,totalTests,deaths)
+        stateCard.append(positive,totalTests, deaths)
+
+
+
+        fetch('http://localhost:3000/heat_map')
+            .then(response => response.json())
+            .then(states => {
+                let fullState = abbrToState(toFullName)
+                let currentState = states[fullState]
+                console.log(currentState.lat)
+                
+                const mymap = L.map('mapid').setView([currentState.lat, currentState.long], 5.5);
+                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 18,
+                    id: 'mapbox/streets-v11',
+                    tileSize: 512,
+                    zoomOffset: -1,
+                    accessToken: 'pk.eyJ1IjoiYWNub3dsYW5kIiwiYSI6ImNrbTJqaGhsZTBoYjcycGp2ZHoxNWlibncifQ.lAf9JwvZdGux5Cg6T_EFRg'
+                }).addTo(mymap);
+                
+                if(state.hospitalizedCurrently > 3000){
+                    var circle = L.circle([currentState.lat, currentState.long], {
+                        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.3,
+                        radius: 150000
+                    }).addTo(mymap);
+                }else if(state.hospitalizedCurrently < 3000 && state.hospitalizedCurrently > 1000){
+                    var circle = L.circle([currentState.lat, currentState.long], {
+                        color: 'yellow',
+                        fillColor: '#FFFFE0',
+                        fillOpacity: 0.5,
+                        radius: 100000
+                    }).addTo(mymap);
+                }else{
+                    var circle = L.circle([currentState.lat, currentState.long], {
+                        color: 'green',
+                        fillColor: '##00ff00',
+                        fillOpacity: 0.2,
+                        radius: 80000
+                    }).addTo(mymap);
+
+                }
+
+                circle.bindPopup(`The current number of currently hospitalized is ${state.hospitalizedCurrently}. \r
+                                        Compared to yesterday, there has been ${state.positiveIncrease} new cases.`);
+
+
+
+            })
 
     })
+
+
+ 
+
 
 
 

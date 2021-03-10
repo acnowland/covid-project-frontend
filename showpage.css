@@ -36,9 +36,9 @@ body img {
 .information{
     height: 400px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .state-card{
@@ -51,7 +51,8 @@ body img {
     align-items: center;
     height: 200px;
     width: 500px;
-    border: 1px solid red;
+    border: 1px solid black;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
 .return-area{
@@ -79,10 +80,11 @@ footer{
     color: white
 }
 
-/* #mapid { 
-    height: 400px; 
-
-} */
+#mapid { 
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    height: 300px; 
+    width: 500px;
+}
 
 
 
