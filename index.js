@@ -1,7 +1,7 @@
+// import Select from "./select.js"
 
 const testStates = document.querySelector('.test-states')
 
-import Select from "./select.js"
 
 const selectElements = document.querySelectorAll('[data-custom]')
 selectElements.forEach(selectElement => {
@@ -29,7 +29,7 @@ function showState(state) {
    const toFull = state.state
 
    stateName.innerText = abbrToState(toFull)
-   stateName.innerHTML = `<a href="stateshow.html?id=${state.state}">${toFull}</a>`
+   stateName.innerHTML = `<a href="stateshow.html?id=${state.state}">${abbrToState(toFull)}</a>`
    // stateName.value = state.state
 
    stateOption.append(stateName)  

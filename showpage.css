@@ -1,11 +1,14 @@
-
-
 * {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
 }
-
+body {
+   background-color: #ede8e8;
+}
+body img {
+   mix-blend-mode: darken;
+}
 
 
 

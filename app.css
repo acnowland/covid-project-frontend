@@ -3,14 +3,13 @@
    padding: 0;
    box-sizing: border-box;
    overflow-x: hidden;
-   scroll-behavior: smooth;
 }
 body {
    background-color: rgb(230, 224, 62);
 }
-.container {
+/* .container {
    height: 100vh;
-}
+} */
 header {
    display: flex;
    align-items: center;
@@ -60,6 +59,10 @@ body img {
    height: 300px;
    overflow-y: visible;
 }
+.navigation.active::-webkit-scrollbar {
+   width: 0.001px;
+}
+
 .navigation .toggle:before {
    content: 'Where is the COVID';
 }
