@@ -11,8 +11,9 @@
       <script src="./index.js" type="module"></script>
       <title>Covid</title>
    </head>
-<body>
 
+<body>
+<div class="container">
    <div class="banner">
       <header class="header">
          <img src="./coronavirus.png" alt="Covid" class="img">
@@ -20,12 +21,32 @@
    </div>
 
 
+
+      <!-- <form method="GET" action="stateshow.html"> -->
+         <!-- <select name="id" id="state" class="search_bar" data-custom> -->
+           
+         <!-- </select> -->
+         <!-- <input type="submit" value="Find Me Covid"> -->
+      <!-- </form> -->
+   <!-- <div class="virus"><i class="fas fa-viruses"></i></div> -->
+
+         <div class="navigation" >
+            <div class="toggle"><span></span></div>
+            <div class="search-box">
+               <input type="text" placeholder="Search...">
+            </div>
+               <ul id="state" class="list">
+               </ul>
+            </div>   
+
       <form method="GET" action="stateshow.html">
          <select name="id" id="state" class="search_bar">
          </select>
          <input type="submit" value="Find Me Covid" >
       </form>
 
+
+   </div>
 
    </body>
 </html>
