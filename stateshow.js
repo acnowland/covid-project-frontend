@@ -1,14 +1,8 @@
-
-
 const queryParams = new URLSearchParams(window.location.search)
 const stateName = queryParams.get('id')
 
 const pageTitle = document.querySelector('.hero')
 const stateCard = document.querySelector('.state-card')
-
-
-
-
 
 
 fetch(`http://localhost:3000/covids/${stateName}`)
@@ -83,16 +77,6 @@ fetch(`http://localhost:3000/covids/${stateName}`)
             })
 
     })
-
-
- 
-
-
-
-
-
-
-
 
 
 

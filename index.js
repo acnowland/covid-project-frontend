@@ -4,9 +4,8 @@ const allOptions = document.getElementsByClassName('state-name')
 const header = document.querySelector(".header")
 const navigation = document.querySelector('.navigation');
 const searchBar = document.getElementById('searchBar')
-const ul = document.querySelector('li')
+const ul = document.querySelector('.list')
 
-console.log(ul)
 
 
 
@@ -110,25 +109,22 @@ document.querySelector('.toggle').onclick = function () {
    navigation.classList.toggle('active');
 }
 
-var merged = [].concat.apply([], states)
-let arrs = [[], []];
-for (let i = 0; i < merged.length; i++)
-   arrs[i % 2].push(merged[i]);
-let [ar, b] = arrs;
-
-// console.log(ar);
-
-// searchBar.addEventListener('keyup', (e) => {
-//    const searchedString = e.target.value.toLowerCase();
-
-//    const filteredStates = ar.filter((state) => {
-//       return (
-//          console.log(state)
-//       )
-//    })
+function filterFunction(){
+   let input = document.querySelector('#searchBar')
+   let filter = input.value.toUpperCase();
+   let div = document.querySelector('.list')
+   let a = div.getElementsByClassName("state-name")
+   for (i = 0; i < a.length; i++) {
+      txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+}
 
 
-// })
 
 
 
