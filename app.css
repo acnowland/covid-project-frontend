@@ -36,7 +36,7 @@ body img {
    overflow-y: hidden;
 }
 .navigation {
-   position: fixed;
+   position: relative;
    left: 40%;
    height: 50px;
    width: 250px;
