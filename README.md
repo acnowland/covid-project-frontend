@@ -76,9 +76,25 @@ function abbrToState(abbr){
    }
 }
 ```
-
 As our API only returns an abbreviation for our state we had to implement a way to turn that abbreviation to a full state name. We reference an array with a states full name and abbreviation and then if the abbreviation matches the input from our api it will then allow us to display the full state name. 
 
+**_Features_**
+
+* Dropdown UL on click of button that will reveal a list of state names as well as search bar
+* Fully useable search that will filter out states on keystroke, key input can be in any order and yield state name 
+* Leaflet.js Map function that uses fetch data from two seperate API's to pull in geographical locations as well as covid data. The map will populate to the page centered over the state you have chosen and will overlay a clickable circle which varies size and color based on severity of COVID infections at that time. 
+
+
+**_To Do_**
+
+* Refactor code to break out sections into more accessible functions
+* A large component of information we are pulling into our website is, unfortunately, coming from an API that announced they are stopping data collection this month. It was announched a few days before our project launched. As such, we will need to do a new search for an API once that one is down and refactor the code to impliment it on both the front and backend
+
+
+**Created By_**
+
+**Adam Nowland** && **Nathan Gusky**
+**March 2021**
 
 
 
