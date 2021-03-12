@@ -39,7 +39,7 @@ Using the web app is very straightforward, as it is designed to be an endpoint f
 
 
 **_Code Examples_**
-``
+```
 window.addEventListener("scroll", function() {
    header.classList.toggle("sticky", window.scrollY > 0)
 })
